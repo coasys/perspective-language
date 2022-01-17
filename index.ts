@@ -11,11 +11,11 @@ export default function create(context: LanguageContext): Language {
     const expressionUI = new NoteExpressionUI()
 
     return {
-        name: 'note-ipfs',
+        name: 'perspective-language',
         expressionAdapter,
         expressionUI,
         interactions,
     } as Language
 }
 
-export const name: string = "note-ipfs"
+export const name: string = "perspective-language"
