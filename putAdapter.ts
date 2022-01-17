@@ -17,11 +17,14 @@ export class IpfsPutAdapter implements PublicSharing {
         }catch(e){
             
         }
-        if (!(typeof perspective === "object" && perspective.hasOwnProperty('links'))) {
+        if (typeof perspective === "object" && perspective.hasOwnProperty('links')) {
             const P = perspective as Perspective
-            if (typeof P.links === "object") {
-                throw new Error('invalid object type')
+            if (typeof P.links !== "object") {
+                throw new Error('invalid link property type')
             }
+        }
+        else {
+            throw new Error('invalid object type')
         }
 
         const agent = this.#agent
